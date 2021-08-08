@@ -54,21 +54,13 @@ def create_food():
 
 @app.route('/edit/<int:id>', methods=['POST', 'GET'])
 def edit_food(id):
-    print(id)
     form = FoodForm(request.form)
     if request.method=="POST":
-        food = Food.query.filter_by(id=id).first()
         data = form.data
-        keys = data.keys()
-        if 'name' in keys:
-            food.name = data['name']
-        elif 'description' in keys:
-            food.description = data['description']
-        elif 'price' in keys:
-            food.price = data['price']
-        elif 'weight' in keys:
-            food.weight = data['weight']
-        food.save_to_db()
+        for k, v in list(data.items()):
+            if not v:
+                data.pop(k)
+        Food.edit_food(id=id, data=data)
         return redirect('/manage')
     return render_template(
         'form-edit.html',

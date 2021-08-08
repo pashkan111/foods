@@ -25,12 +25,12 @@ class Food(db.Model, SerializerMixin):
             return []
         return foods
 
+
     @classmethod
-    def get_all_fooby(cls):
-        foods = cls.query.filter_by(razdel='Салаты').all()
-        if not foods:
-            return []
-        return foods
+    def edit_food(cls, id, data):
+        cls.query.filter(cls.id==id).update(data)
+        db.session.commit()
+
 
     @classmethod
     def change_activity(cls, id, data: bool):
