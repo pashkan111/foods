@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<title>Деловая трапеза - меню.</title>
+	<meta name="description" content="Деловая трапеза - меню." />
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta name="theme-color" content="#000">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+
+<body>
+	<div class="menu-container">
+		<div class="menu-chapter">
+			<table class="table table-50">
+				<tr>
+					<th>Салаты:</th>
+				</tr>
+				{% for i in foods %}
+				{% if i.razdel == "Салаты" %}
+				<tr><td>{{i.name}}</td><td>{{i.weight}}гр. - {{i.price}} руб</td></tr>
+				{% endif %}
+				{% endfor %}
+			</table>
+		</div><!--chapter-->
+		<div class="menu-chapter">
+			<table class="table ">
+				<tr>
+					<th>Супы:</th>
+				</tr>
+				{% for i in foods %}
+				{% if i.razdel == "Супы" %}
+				<tr><td>{{i.name}}</td><td><span class="weight">{{i.weight}}</span>гр. - <span class="price">{{i.price}}</span> руб</td></tr>
+				{% endif %}
+				{% endfor %}
+			</table>
+		</div><!--chapter-->
+		
+		<div class="menu-chapter">
+			<table class="table ">
+				<tr>
+					<th>Горячие блюда:</th>
+				</tr>
+				{% for i in foods %}
+				{% if i.razdel == "Горячие блюда" %}
+				<tr><td>{{i.name}}</td><td><span class="weight">{{i.weight}}</span>гр. - <span class="price">{{i.price}}</span> руб</td></tr>
+				{% endif %}
+				{% endfor %}
+			</table>
+		</div><!--chapter-->
+		
+		<div class="menu-chapter">
+			<table class="table ">
+				<tr>
+					<th>Гарниры:</th>
+				</tr>
+				{% for i in foods %}
+				{% if i.razdel == "Гарниры" %}
+				<tr><td>{{i.name}}</td><td><span class="weight">{{i.weight}}</span>гр. - <span class="price">{{i.price}}</span> руб</td></tr>
+				{% endif %}
+				{% endfor %}
+			</table>
+		</div><!--chapter-->
+		
+
+		<div class="menu-chapter">
+			<table class="table ">
+				<tr>
+					<th>Напитки:</th>
+				</tr>
+				{% for i in foods %}
+				{% if i.razdel == "Напитки" and i.is_active == True %}
+				<tr><td>{{i.name}}</td><td><span class="weight">{{i.weight}}</span>гр. - <span class="price">{{i.price}}</span> руб</td></tr>
+				{% endif %}
+				{% endfor %}
+			</table>
+		</div><!--chapter-->
+		
+	</div>
+</body>
+</html>
