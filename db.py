@@ -40,6 +40,14 @@ class Food(db.Model, SerializerMixin):
         food.is_active=data
         return food
 
+    @classmethod
+    def delete(cls, id):
+        food = cls.query.filter_by(id=id).first()
+        if not food:
+            return []
+        db.session.delete(food)
+        db.session.commit()
+
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()

@@ -28,7 +28,7 @@ def manage():
             if j.name in checked:
                 j.is_active = True
                 j.save_to_db()
-            elif not j.name in checked:
+            if not j.name in checked:
                 j.is_active = False
                 j.save_to_db()     
     foods = Food.get_all_food()
@@ -66,6 +66,12 @@ def edit_food(id):
         'form-edit.html',
         form=form
     )
+
+
+@app.route('/delete/<int:id>', methods=['GET'])
+def delete_food(id):
+    food = Food.delete(id)
+    return redirect('/manage')
 
 
 if __name__ == '__main__':

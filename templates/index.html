@@ -22,7 +22,7 @@
 					<th>Салаты:</th>
 				</tr>
 				{% for i in foods %}
-				{% if i.razdel == "Салаты" %}
+				{% if i.razdel == "Салаты" and i.is_active == True %}
 				<tr><td>{{i.name}}</td><td>{{i.weight}}гр. - {{i.price}} руб</td></tr>
 				{% endif %}
 				{% endfor %}
@@ -34,7 +34,7 @@
 					<th>Супы:</th>
 				</tr>
 				{% for i in foods %}
-				{% if i.razdel == "Супы" %}
+				{% if i.razdel == "Супы" and i.is_active == True %}
 				<tr><td>{{i.name}}</td><td><span class="weight">{{i.weight}}</span>гр. - <span class="price">{{i.price}}</span> руб</td></tr>
 				{% endif %}
 				{% endfor %}
@@ -47,7 +47,7 @@
 					<th>Горячие блюда:</th>
 				</tr>
 				{% for i in foods %}
-				{% if i.razdel == "Горячие блюда" %}
+				{% if i.razdel == "Горячие блюда" and i.is_active == True %}
 				<tr><td>{{i.name}}</td><td><span class="weight">{{i.weight}}</span>гр. - <span class="price">{{i.price}}</span> руб</td></tr>
 				{% endif %}
 				{% endfor %}
@@ -60,7 +60,7 @@
 					<th>Гарниры:</th>
 				</tr>
 				{% for i in foods %}
-				{% if i.razdel == "Гарниры" %}
+				{% if i.razdel == "Гарниры" and i.is_active == True %}
 				<tr><td>{{i.name}}</td><td><span class="weight">{{i.weight}}</span>гр. - <span class="price">{{i.price}}</span> руб</td></tr>
 				{% endif %}
 				{% endfor %}

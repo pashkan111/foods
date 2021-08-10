@@ -16,6 +16,7 @@
                     <p style="display: inline-block"><input type="checkbox" {% if i.is_active %}checked{% else %}{% endif %} name="checkbox", value="{{i.name}}"></p> 
                     <p style="display: inline-block; font-size: 20px;">{{i.name}}, цена: {{i.price}} руб, вес: {{i.weight}}</p>
                     <a class="btn btn-primary" href="{{ url_for('edit_food', id=i.id) }}">Редактировать</a>
+                    <a class="btn btn-danger" href="{{ url_for('delete_food', id=i.id) }}">Удалить</a>
             </div>
         {% endfor %}
         <div style="display: inline-block">
